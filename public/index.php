@@ -25,12 +25,10 @@ if ($id_a != '' && $mark_a != '' && $model_a != ''){
     $car->setModel($model_a);
     $car->setMark($mark_a);
     $car->add();
-    echo ('Запись добавлена');
 }
 if ($id_d != ''){
     $car->setId($id_d);
     $car->delete();
-    echo ('Запись удалена');
 }
 $db = $car->getAll();
 if ($id_s != ''){
