@@ -41,26 +41,30 @@ class car
         $stmt = $this->connect->prepare($sql);
         $stmt->execute();
         $allD = $stmt->fetchAll();
-        $object = array();
+        $object = new car();
         $objects = array();
 
         foreach ($allD as $row){
-            $object = [$row[0], $row[1], $row[2]];
-            $objects[] = $object;
+            $object->setID($row[0]);
+            $object->setMark($row[1]);
+            $object->setModel($row[2]);
+            $objects[] = clone $object;
         }
         return $objects;
     }
-    public function fByMark($mark){
+    public function fByMark($mark): array{
         $sql = 'select * from cars where mark = '. "'". $mark . "'";
         $stmt = $this->connect->prepare($sql);
         $stmt->execute();
         $allD = $stmt->fetchAll();
-        $object = array();
+        $object = new car();
         $objects = array();
 
         foreach ($allD as $row){
-            $object = [$row[0], $row[1], $row[2]];
-            $objects[] = $object;
+            $object->setID($row[0]);
+            $object->setMark($row[1]);
+            $object->setModel($row[2]);
+            $objects[] = clone $object;
         }
         return $objects;
     }
@@ -69,12 +73,14 @@ class car
         $stmt = $this->connect->prepare($sql);
         $stmt->execute();
         $allD = $stmt->fetchAll();
-        $object = array();
+        $object = new car();
         $objects = array();
 
         foreach ($allD as $row){
-            $object = [$row[0], $row[1], $row[2]];
-            $objects[] = $object;
+            $object->setID($row[0]);
+            $object->setMark($row[1]);
+            $object->setModel($row[2]);
+            $objects[] = clone $object;
         }
         return $objects;
     }

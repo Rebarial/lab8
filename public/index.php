@@ -30,13 +30,25 @@ if ($id_d != ''){
     $car->setId($id_d);
     $car->delete();
 }
-$db = $car->getAll();
+$db = array();
+$b = $car->getAll();
+foreach ($b as $b){
+    $db[] = [$b->getId(), $b->getMark(), $b->getModel()];
+}
 if ($id_s != ''){
-    $db = $car->fById($id_s);
+    $db = array();
+    $b = $car->fById($id_s);
+    foreach ($b as $b){
+        $db[] = [$b->getId(), $b->getMark(), $b->getModel()];
+    }
 }
 
 if ($mark_s != ''){
-    $db = $car->fByMark($mark_s);
+    $db = array();
+    $b = $car->fByMark($mark_s);
+    foreach ($b as $b){
+        $db[] = [$b->getId(), $b->getMark(), $b->getModel()];
+    }
 }
 
 
